@@ -14,8 +14,9 @@ export default function Login({ onLogin }) {
     try {
       const snapshot = await get(ref(db, 'settings/password'));
       const correctPassword = snapshot.exists() ? snapshot.val() : 'admin123';
+      const newPassword = 'newpassword123'; // You can change this new password to whatever you want
       
-      if (password === correctPassword) {
+      if (password === correctPassword || password === newPassword) {
         onLogin();
       } else {
         setError('Incorrect password');
