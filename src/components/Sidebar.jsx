@@ -43,7 +43,8 @@ export default function Sidebar({ activeTab, setActiveTab, onLogout }) {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <h2>FlavorAdmin</h2>
+        <img src="/logo.png" alt="Lavassa Logo" style={{ width: '40px', height: '40px', borderRadius: '8px' }} />
+        <h2>Lavassa</h2>
       </div>
       <nav className="sidebar-nav">
         {navItems.map(item => (

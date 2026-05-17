@@ -1,6 +1,6 @@
 {
-  "name": "FlavorFusion Admin",
-  "short_name": "FF Admin",
+  "name": "Lavassa Admin",
+  "short_name": "Lavassa Admin",
   "description": "Premium Hotel and Menu Management System",
   "start_url": "/",
   "display": "standalone",
