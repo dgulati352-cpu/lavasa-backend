@@ -8,22 +8,34 @@ export default function Login({ onLogin }) {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const FALLBACK_PASSWORDS = ['admin123', 'newpassword123', 'lavassa123'];
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError('');
+
+    // First check hardcoded fallback passwords (always works offline too)
+    if (FALLBACK_PASSWORDS.includes(password)) {
+      onLogin();
+      setIsLoading(false);
+      return;
+    }
+
+    // Try to verify against Firebase database
     try {
       const snapshot = await get(ref(db, 'settings/password'));
-      const correctPassword = snapshot.exists() ? snapshot.val() : 'admin123';
-      const newPassword = 'newpassword123'; // You can change this new password to whatever you want
-      
-      if (password === correctPassword || password === newPassword) {
+      const correctPassword = snapshot.exists() ? snapshot.val() : null;
+
+      if (correctPassword && password === correctPassword) {
         onLogin();
       } else {
-        setError('Incorrect password');
+        setError('Incorrect password. Please try again.');
       }
     } catch (err) {
-      console.error(err);
-      setError('Error verifying password. Please try again.');
+      console.error('Firebase error:', err);
+      // Firebase failed — password wasn't in fallback list either
+      setError('Incorrect password. Please try again.');
     } finally {
       setIsLoading(false);
     }
