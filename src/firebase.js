@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
+import { getAuth, signInAnonymously } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBBbezOlYsEQD-1EQ7oxC1BlFREj-4JXHE",
@@ -14,3 +15,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
+export const auth = getAuth(app);
+
+// Authenticate anonymously so the admin dashboard can read/write data
+signInAnonymously(auth).then(() => {
+  console.log("Authenticated anonymously with Firebase");
+}).catch((error) => {
+  console.error("Anonymous auth failed:", error);
+});
