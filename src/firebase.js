@@ -3,14 +3,14 @@ import { getDatabase } from 'firebase/database';
 import { getAuth, signInAnonymously } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDPOCPfX1-tB0BfSfku8Oer4tY9foqGE8s",
-  authDomain: "hotel-frontend-d7ed9.firebaseapp.com",
-  databaseURL: "https://hotel-frontend-d7ed9-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "hotel-frontend-d7ed9",
-  storageBucket: "hotel-frontend-d7ed9.firebasestorage.app",
-  messagingSenderId: "798480327393",
-  appId: "1:798480327393:web:20595c31712479a92e0da0",
-  measurementId: "G-VR3V6QTKSQ"
+  apiKey: "AIzaSyBBbezOlYsEQD-1EQ7oxC1BlFREj-4JXHE",
+  authDomain: "lavasa-52e19.firebaseapp.com",
+  projectId: "lavasa-52e19",
+  storageBucket: "lavasa-52e19.firebasestorage.app",
+  messagingSenderId: "487517193462",
+  appId: "1:487517193462:web:7caddd9b4e0cec5a1658d7",
+  measurementId: "G-PRY4H1CGDV",
+  databaseURL: "https://lavasa-52e19-default-rtdb.firebaseio.com"
 };
 
 const app = initializeApp(firebaseConfig);
